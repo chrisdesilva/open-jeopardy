@@ -1,8 +1,8 @@
 import React from 'react'
-import AddCategories from './AddCategories'
-import EnterQuestionInfo from './EnterQuestionInfo'
-import SetTotalQuestions from './SetTotalQuestions'
-import Gameboard from './Gameboard';
+import AddCategories from '../AddCategories/AddCategories'
+import EnterQuestionInfo from '../EnterQuestionInfo/EnterQuestionInfo'
+import SetTotalQuestions from '../SetTotalQuestions/SetTotalQuestions'
+import Gameboard from '../Gameboard/Gameboard';
 
 class GameSetup extends React.Component {
 
