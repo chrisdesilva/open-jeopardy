@@ -1,4 +1,7 @@
 import React from 'react'
+import AddCategories from './AddCategories'
+import EnterQuestionInfo from './EnterQuestionInfo'
+import SetTotalQuestions from './SetTotalQuestions'
 
 class GameSetup extends React.Component {
 
@@ -87,82 +90,32 @@ class GameSetup extends React.Component {
       <div>
         <div>
           {this.state.categories.length < 5 &&
-            <form onSubmit={this.handleAddCategory}>
-              <label>
-                Categories: 
-                <input 
-                  type="text" 
-                  name="category" 
-                  value={this.state.categoryText} 
-                  placeholder="Enter 5 question categories" 
-                  onChange={this.handleChangeCategory}
-                />
-              </label>
-              <input 
-                type="submit" 
-                value="Add Category" 
-              />
-            </form>
+            <AddCategories
+              value={this.state.categoryText}
+              addCategory={this.handleAddCategory}
+              changeCategory={this.handleChangeCategory}
+            />
           }
         </div>
         {this.state.showTotalQuestions &&
-          <div>
-            <form onSubmit={this.handleSetQuestionTotal}>
-            <label>
-              Set Total # of Questions:
-              <input type="number" name="totalQuestions" min="1" max="25" onChange={this.handleChangeTotalQuestions} />
-            </label>
-            <input 
-              type="submit" 
-              value="Set Total" 
-            />
-            </form>
-          </div>
+          <SetTotalQuestions
+            setTotal={this.handleSetQuestionTotal}
+            changeTotal={this.handleChangeTotalQuestions}
+          />
         }
           {!this.state.showTotalQuestions && this.state.categories.length === 5 && this.state.questionList.length < this.state.totalQuestions &&
-            <div>
-              <form onSubmit={this.handleAddQuestion}>
-                <label>
-                  Category:
-                  <select onChange={this.handleChangeCategoryOption}>
-                    {this.state.categories.map( category => <option value={category}>{category}</option> )}
-                  </select>
-                </label>
-                <label>
-                  Question: 
-                  <input 
-                    type="text" 
-                    name="question" 
-                    value={this.state.questionText} 
-                    placeholder="Enter question" 
-                    onChange={this.handleChangeQuestion}
-                  />
-                </label>
-                <label>
-                  Answer: 
-                  <input 
-                    type="text" 
-                    name="question" 
-                    value={this.state.answerText}
-                    placeholder="Enter question" 
-                    onChange={this.handleChangeAnswer}
-                  />
-                </label>
-                <label>
-                  Difficulty: 
-                  <select onChange={this.handleChangeDifficultyOption}>
-                    <option value="Beginner">Beginner</option>
-                    <option value="Intermediate">Intermediate</option>
-                    <option value="Advanced">Advanced</option>
-                    <option value="Final">Final</option>
-                  </select>
-                </label>
-                <input type="submit" value="Add Question" />
-              </form> 
-              {!this.state.showTotalQuestions && 
-                <p>Add {this.state.totalQuestions}{this.state.totalQuestions === 1 ? ' question' : ' questions'}</p>
-              }
-            </div>
+            <EnterQuestionInfo
+              categories={this.state.categories}
+              addQuestion={this.handleAddQuestion}
+              changeCategory={this.handleChangeCategoryOption}
+              questionValue={this.state.questionText}
+              changeQuestion={this.handleChangeQuestion}
+              answerValue={this.state.answerText}
+              changeAnswer={this.handleChangeAnswer}
+              changeDifficulty={this.handleChangeDifficultyOption}
+              showTotal={this.state.showTotalQuestions}
+              totalQuestions={this.state.totalQuestions}
+            />
           }
 
       </div>
