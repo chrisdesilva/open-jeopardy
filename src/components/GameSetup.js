@@ -10,7 +10,8 @@ class GameSetup extends React.Component {
     answerText: '',
     difficultyText: 'Beginner',
     categoryOption: '',
-    totalQuestions: 1
+    totalQuestions: 1,
+    showTotalQuestions: false
   }
 
   // get category info first, then render as options in dropdown to keep questions organized by category
@@ -18,7 +19,9 @@ class GameSetup extends React.Component {
     this.setState({ categoryText: e.target.value })
   }
 
+  // once 5 categories have been added, show # of questions input with showTotalQuestions: true
   handleAddCategory = e => {
+    const questionLength = this.state.categories.length
     this.setState({ 
       categories: [...this.state.categories, 
       this.state.categoryText], 
@@ -26,6 +29,18 @@ class GameSetup extends React.Component {
       categoryOption: this.state.categories[0]  
     })
     e.preventDefault()
+    if(questionLength === 4) {
+      this.setState({
+        showTotalQuestions: true
+      })
+    }
+  }
+
+  handleSetQuestionTotal = e => {
+    e.preventDefault()
+    this.setState({
+      showTotalQuestions: false
+    })
   }
 
   // handle the question information after categories have been set
@@ -90,14 +105,23 @@ class GameSetup extends React.Component {
             </form>
           }
         </div>
-        
-          {this.state.categories.length === 5 && this.state.questionList.length < this.state.totalQuestions &&
+        {this.state.showTotalQuestions &&
+          <div>
+            <form onSubmit={this.handleSetQuestionTotal}>
+            <label>
+              Set Total # of Questions:
+              <input type="number" name="totalQuestions" min="1" max="25" onChange={this.handleChangeTotalQuestions} />
+            </label>
+            <input 
+              type="submit" 
+              value="Set Total" 
+            />
+            </form>
+          </div>
+        }
+          {!this.state.showTotalQuestions && this.state.categories.length === 5 && this.state.questionList.length < this.state.totalQuestions &&
             <div>
               <form onSubmit={this.handleAddQuestion}>
-                <label>
-                  Set # of Questions:
-                  <input type="number" name="totalQuestions" min="1" max="25" onChange={this.handleChangeTotalQuestions} />
-                </label>
                 <label>
                   Category:
                   <select onChange={this.handleChangeCategoryOption}>
@@ -135,7 +159,9 @@ class GameSetup extends React.Component {
                 </label>
                 <input type="submit" value="Add Question" />
               </form> 
-              <p>Add {this.state.totalQuestions}{this.state.totalQuestions === 1 ? ' question' : ' questions'}</p>
+              {!this.state.showTotalQuestions && 
+                <p>Add {this.state.totalQuestions}{this.state.totalQuestions === 1 ? ' question' : ' questions'}</p>
+              }
             </div>
           }
 
