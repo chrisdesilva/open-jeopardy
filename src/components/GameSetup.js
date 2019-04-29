@@ -2,6 +2,7 @@ import React from 'react'
 import AddCategories from './AddCategories'
 import EnterQuestionInfo from './EnterQuestionInfo'
 import SetTotalQuestions from './SetTotalQuestions'
+import Gameboard from './Gameboard';
 
 class GameSetup extends React.Component {
 
@@ -88,7 +89,6 @@ class GameSetup extends React.Component {
   render() {
     return (
       <div>
-        <div>
           {this.state.categories.length < 5 &&
             <AddCategories
               value={this.state.categoryText}
@@ -96,7 +96,6 @@ class GameSetup extends React.Component {
               changeCategory={this.handleChangeCategory}
             />
           }
-        </div>
         {this.state.showTotalQuestions &&
           <SetTotalQuestions
             setTotal={this.handleSetQuestionTotal}
@@ -117,7 +116,11 @@ class GameSetup extends React.Component {
               totalQuestions={this.state.totalQuestions}
             />
           }
-
+        <Gameboard
+          questionListLength={this.state.questionList.length}
+          totalQuestions={this.state.totalQuestions}
+          questionList={this.state.questionList}
+        />
       </div>
     )
   }
