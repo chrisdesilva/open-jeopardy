@@ -1,4 +1,4 @@
-#[Open Jeopardy](https://openjeopardy.netlify.com/)
+# [Open Jeopardy](https://openjeopardy.netlify.com/)
 
 Open Jeopardy is a React app that allows users to enter questions and answers in a Jeopardy-style format. Designed for teachers to use as a review game, the user can enter 5 categories, each with beginner, intermediate, and advanced level question options. Teachers can also add a final Jeopardy question for an added bonus at the end of the game.
 
