@@ -1,23 +1,24 @@
 import React from 'react'
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
+
 
 const AddCategories = props => (
     <div>
-        <form onSubmit={props.addCategory}>
-            <label>
-            Categories: 
-            <input 
-                type="text" 
-                name="category" 
-                value={props.value} 
-                placeholder="Enter 5 question categories" 
-                onChange={props.changeCategory}
-            />
-            </label>
-            <input 
-            type="submit" 
-            value="Add Category" 
-            />
-        </form>
+        <h2>Enter Five Categories</h2>
+        <Form onSubmit={props.addCategory}>
+            <Form.Group>
+                <Form.Control 
+                    inline="true" 
+                    type="text" 
+                    placeholder="Enter Category" 
+                    value={props.value} 
+                    onChange={props.changeCategory}
+                    required
+                />
+            </Form.Group>
+            <Button type="submit">Add Category</Button> 
+        </Form>
     </div>
 )
 
