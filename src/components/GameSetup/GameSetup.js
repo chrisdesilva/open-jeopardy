@@ -2,7 +2,7 @@ import React from 'react'
 import AddCategories from '../AddCategories/AddCategories'
 import EnterQuestionInfo from '../EnterQuestionInfo/EnterQuestionInfo'
 import SetTotalQuestions from '../SetTotalQuestions/SetTotalQuestions'
-import Gameboard from '../Gameboard/Gameboard';
+import QuestionModal from '../QuestionModal/QuestionModal'
 
 class GameSetup extends React.Component {
 
@@ -116,11 +116,9 @@ class GameSetup extends React.Component {
               totalQuestions={this.state.totalQuestions}
             />
           }
-        <Gameboard
-          questionListLength={this.state.questionList.length}
-          totalQuestions={this.state.totalQuestions}
-          questionList={this.state.questionList}
-        />
+        {this.state.totalQuestions === this.state.questionList.length &&
+          this.state.questionList.map( question => <QuestionModal category={question.category } question={question.question} difficulty={question.difficulty} answer={question.answer}/>)
+        }
       </div>
     )
   }
