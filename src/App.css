@@ -3,6 +3,11 @@
   margin-top: 2rem;
 }
 
+.questionButton {
+  width: 20rem;
+  margin-top: 2rem;
+}
+
 .form-control {
   width: 50%;
   margin: auto;

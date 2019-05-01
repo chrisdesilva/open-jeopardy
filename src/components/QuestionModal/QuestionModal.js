@@ -7,6 +7,7 @@ const Gameboard = props => {
     const [show, setShow] = useState(false)
     const [answer, setAnswer] = useState(false)
     
+    // open and close modal
     const handleClose = () => {
         setShow(false)
     }
@@ -15,20 +16,22 @@ const Gameboard = props => {
         setShow(true)
     }
 
+    //show answer to question
     const handleAnswer = () => {
         setAnswer(true)
     }
 
+    // set color of button to match difficulty level
     let questionButton 
 
     if(props.difficulty === "Beginner") {
-        questionButton = <Button onClick={handleOpen} variant="success">{props.category}</Button>
+        questionButton = <Button className="questionButton" onClick={handleOpen} variant="success">{props.category}</Button>
     } else if (props.difficulty === "Intermediate") {
-        questionButton = <Button onClick={handleOpen} variant="warning">{props.category}</Button>
+        questionButton = <Button className="questionButton" onClick={handleOpen} variant="warning">{props.category}</Button>
     } else if (props.difficulty === "Advanced") {
-        questionButton = <Button onClick={handleOpen} variant="danger">{props.category}</Button>
+        questionButton = <Button className="questionButton" onClick={handleOpen} variant="danger">{props.category}</Button>
     } else {
-        questionButton = <Button onClick={handleOpen} variant="outline-danger">{props.category}</Button>
+        questionButton = <Button className="questionButton" onClick={handleOpen} variant="outline-danger">{props.category}</Button>
     }
 
     return (
