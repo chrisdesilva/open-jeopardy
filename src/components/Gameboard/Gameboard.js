@@ -33,12 +33,23 @@ const Gameboard = props => (
         <Row>
         {props.questionList.map( question => {
         return <Col className="w-20">
-        <QuestionModal 
+        {question.difficulty !== "Final" && <QuestionModal 
             category={question.category} 
             question={question.question} 
             difficulty={question.difficulty} 
             answer={question.answer}
-        />
+        />}
+        </Col>})}
+        </Row>
+        <Row>
+        {props.questionList.map( question => {
+        return <Col xs={12}>
+        {question.difficulty === "Final" && <QuestionModal 
+            category={question.category} 
+            question={question.question} 
+            difficulty={question.difficulty} 
+            answer={question.answer}
+        />}
         </Col>})}
         </Row>
     </div>
