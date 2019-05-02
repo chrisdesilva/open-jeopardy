@@ -116,6 +116,7 @@ class GameSetup extends React.Component {
               changeDifficulty={this.handleChangeDifficultyOption}
               showTotal={this.state.showTotalQuestions}
               totalQuestions={this.state.totalQuestions}
+              questionList={this.state.questionList.length}
             />
           }
         {this.state.totalQuestions === this.state.questionList.length &&

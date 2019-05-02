@@ -1,6 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Bangers');
+
+h1 {
+  font-family: 'Bangers', cursive;
+  font-size: 6rem;
+}
+
 .App {
   text-align: center;
   margin-top: 2rem;
+}
+
+.btn {
+  font-family: 'Bangers', cursive;
+  letter-spacing: 2px;
 }
 
 .questionButton {
