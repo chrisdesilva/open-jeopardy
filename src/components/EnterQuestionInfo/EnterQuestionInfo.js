@@ -45,12 +45,12 @@ const EnterQuestionInfo = props => (
         </Form.Row>
         <Form.Row>
             <Form.Group as={Col}>
-                <Form.Label>Difficulty </Form.Label>
+                <Form.Label>{props.questionList === (props.totalQuestions - 1) ? 'Select "Final"' : 'Difficulty'}</Form.Label>
                 <Form.Control as="select" onChange={props.changeDifficulty}>
                     <option value="Beginner">Beginner</option>
                     <option value="Intermediate">Intermediate</option>
                     <option value="Advanced">Advanced</option>
-                    <option value="Final">Final</option>
+                    {props.questionList === (props.totalQuestions - 1) &&<option value="Final">Final</option>}
                 </Form.Control>
             </Form.Group>
         </Form.Row>

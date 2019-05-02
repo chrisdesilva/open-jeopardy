@@ -31,7 +31,7 @@ const Gameboard = props => {
     } else if (props.difficulty === "Advanced") {
         questionButton = <Button className="questionButton" onClick={handleOpen} variant="danger">{props.category}</Button>
     } else {
-        questionButton = <Button className="questionButton" onClick={handleOpen} variant="outline-danger">{props.category}</Button>
+        questionButton = <Button className="questionButton" onClick={handleOpen} variant="outline-danger">Final</Button>
     }
 
     return (
