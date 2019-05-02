@@ -119,7 +119,7 @@ class GameSetup extends React.Component {
               questionList={this.state.questionList.length}
             />
           }
-        {this.state.totalQuestions === this.state.questionList.length &&
+        {this.state.totalQuestions > 0 && this.state.totalQuestions === this.state.questionList.length &&
           <Gameboard 
             questionList={this.state.questionList}
           />

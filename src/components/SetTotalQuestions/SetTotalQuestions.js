@@ -4,7 +4,8 @@ import Form from 'react-bootstrap/Form'
 
 const SetTotalQuestions = props => (
     <div>
-        <h2>Set Total Number of Questions</h2>
+        <h2>Set Total Number of Questions in Game</h2>
+        <p>Multiples of 5 Are Recommended - Maximum of 25 Total Questions</p>
         <Form onSubmit={props.setTotal}>
             <Form.Group>
                 <Form.Control 

@@ -6,8 +6,12 @@ import Row from 'react-bootstrap/Row'
 
 
 const Gameboard = props => (
-    <div>
-        <Row className="buttonKey">
+    <div>      
+      <div className="buttonKey">
+        <Row>
+          <Col xs={12}>
+            <h2>Category Key</h2>
+          </Col>          
           <Col xs={3}>
               <Button variant="success">Beginner</Button>
               <p>Beginner questions are worth 1 point</p>
@@ -25,6 +29,7 @@ const Gameboard = props => (
             <p>The Final Question is saved for the end. You may wager anything between 0 and your total number of points.</p>
           </Col>
         </Row>
+      </div>
         <Row>
         {props.questionList.map( question => {
         return <Col className="w-20">
