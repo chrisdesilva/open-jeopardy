@@ -4,11 +4,17 @@
 }
 
 .questionButton {
-  width: 20rem;
+  width: 10rem;
   margin-top: 2rem;
 }
 
 .form-control {
   width: 50%;
   margin: auto;
+}
+
+.w-20 {
+  -webkit-box-flex: 0;
+  flex: 0 0 20%;
+  max-width: 20%; 
 }

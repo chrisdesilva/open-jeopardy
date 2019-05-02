@@ -7,7 +7,7 @@ const Gameboard = props => (
     <div>
         <Row>
         {props.questionList.map( question => {
-        return <Col xs={3}>
+        return <Col className="w-20">
         <QuestionModal 
             category={question.category} 
             question={question.question} 
