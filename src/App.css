@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Bangers');
 
+body {
+  background: rgba(19, 126, 15, 0.452);
+  height: 100vh;
+  padding: 2rem 0;
+  margin: 0;
+  width: 100%;
+}
+
 h1 {
   font-family: 'Bangers', cursive;
   font-size: 6rem;
@@ -7,7 +15,7 @@ h1 {
 
 .App {
   text-align: center;
-  margin-top: 2rem;
+  padding-top: 2rem;
 }
 
 .btn {
@@ -16,12 +24,11 @@ h1 {
 }
 
 .buttonKey {
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9));
+  border-bottom: 1px solid black;
   padding: 1rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
 }
 
 .questionButton {
@@ -34,8 +41,13 @@ h1 {
   margin: auto;
 }
 
+.form-row {
+  margin: 0;
+}
+
 .row {
   padding: 0;
+  margin: 0;
 }
 
 .col-3 {
@@ -46,4 +58,5 @@ h1 {
   -webkit-box-flex: 0;
   flex: 0 0 20%;
   max-width: 20%; 
+  padding: 0;
 }

@@ -7,11 +7,10 @@ import Row from 'react-bootstrap/Row'
 
 const Gameboard = props => (
     <div>      
-      <div className="buttonKey">
-        <Row>
+      <Row className="buttonKey">
           <Col xs={12}>
             <h2>Category Key</h2>
-          </Col>          
+          </Col>        
           <Col xs={3}>
               <Button variant="success">Beginner</Button>
               <p>Beginner questions are worth 1 point</p>
@@ -28,8 +27,7 @@ const Gameboard = props => (
             <Button variant="outline-danger">Final</Button>
             <p>The Final Question is saved for the end. You may wager anything between 0 and your total number of points.</p>
           </Col>
-        </Row>
-      </div>
+      </Row>
         <Row>
         {props.questionList.map( question => {
         return <Col className="w-20">
@@ -45,9 +43,9 @@ const Gameboard = props => (
         {props.questionList.map( question => {
         return <Col xs={12}>
         {question.difficulty === "Final" && <QuestionModal 
-            category={question.category} 
+            category="Final" 
             question={question.question} 
-            difficulty={question.difficulty} 
+            difficulty="Final" 
             answer={question.answer}
         />}
         </Col>})}

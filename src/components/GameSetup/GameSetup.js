@@ -15,17 +15,19 @@ class GameSetup extends React.Component {
     answerText: '',
     difficultyText: 'Beginner',
     categoryOption: '',
-    totalQuestions: 1,
+    totalQuestions: 15,
     showTotalQuestions: false
   }
 
   // get category info first, then render as options in dropdown to keep questions organized by category
   handleChangeCategory = e => {
+    e.preventDefault()
     this.setState({ categoryText: e.target.value })
   }
 
   // once 5 categories have been added, show # of questions input with showTotalQuestions: true
   handleAddCategory = e => {
+    e.preventDefault()
     const questionLength = this.state.categories.length
     this.setState({ 
       categories: [...this.state.categories, 
@@ -104,7 +106,7 @@ class GameSetup extends React.Component {
             changeTotal={this.handleChangeTotalQuestions}
           />
         }
-          {!this.state.showTotalQuestions && this.state.categories.length === 5 && this.state.questionList.length < this.state.totalQuestions &&
+          {!this.state.showTotalQuestions && this.state.categories.length === 5 && this.state.questionList.length < this.state.totalQuestions + 1 &&
             <EnterQuestionInfo
               categories={this.state.categories}
               addQuestion={this.handleAddQuestion}
@@ -119,7 +121,7 @@ class GameSetup extends React.Component {
               questionList={this.state.questionList.length}
             />
           }
-        {this.state.totalQuestions > 0 && this.state.totalQuestions === this.state.questionList.length &&
+        {this.state.totalQuestions > 0 && this.state.totalQuestions + 1 === this.state.questionList.length &&
           <Gameboard 
             questionList={this.state.questionList}
           />
